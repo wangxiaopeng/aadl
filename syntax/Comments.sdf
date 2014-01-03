@@ -1,0 +1,9 @@
+module Comments
+
+imports Character
+
+exports
+
+   lexical syntax
+   	"--" ~[\n]* [\n]  -> LAYOUT
+   	[\ \t\r\n]        -> LAYOUT

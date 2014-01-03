@@ -1,0 +1,64 @@
+module Packages
+
+imports Lexical 
+imports ComponentType TypeIdentifier
+
+exports
+	sorts Packagespec DefiningPackageName PackDeclarations PropertyAssociation
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"package" DefiningPackageName
+  	   "public" PackDeclarations
+  	     ("private" PackDeclarations)?
+  	   ("properties" PropertyAssociation+)?
+  	"end" DefiningPackageName ";"                  -> Packagespec{cons("Package_spec")}
+   	"package" DefiningPackageName
+  	   "public" PackDeclarations
+  	     ("private" PackDeclarations)?
+  	   ("properties" NoneStatememt)?
+  	"end" DefiningPackageName ";"                  -> Packagespec{cons("Package_spec")}
+  	
+  	NameVisibilityDeclaration* AADLDeclaration*    -> PackDeclarations{cons("Pack_Declarations")}
+  	
+  	{PackageIdentifier "::"}* PackageIdentifier    -> PackageName{cons("Pac_kageName")}
+  	
+  	"none" ";"                                     -> NoneStatememt{cons("none")}
+  	
+  	ClassifierDeclaration                          -> AADLDeclaration
+  	AnnexLibrary                                   -> AADLDeclaration
+  	
+  	ComponentClassifierDeclaration                -> ClassifierDeclaration
+  	FeatureGroupClassifierDeclaration             -> ClassifierDeclaration
+  	
+  	ComponentType                                 -> ComponentClassifierDeclaration
+  	ComponentTypeExtension                        -> ComponentClassifierDeclaration
+  	ComponentImplementation                       -> ComponentClassifierDeclaration
+  	ComponentImplementationExtension              -> ComponentClassifierDeclaration
+  	
+  	FeatureGroupType                              -> FeatureGroupClassifierDeclaration
+  	FeatureGroupTypeExtension                     -> FeatureGroupClassifierDeclaration
+  	
+  	ImportDeclaration                             -> NameVisibilityDeclaration
+  	AliasDeclaration                              -> NameVisibilityDeclaration
+  	
+  	"with" PackageName ","
+  	   {PackageName ","}* ";"                     -> ImportDeclaration{cons("Import_Declaration")}
+    "with" PackageName ","
+  	   {PropertySetIdentifier ","}* ";"           -> ImportDeclaration{cons("Import_Declaration")}	
+    "with" PropertySetIdentifier ","
+  	   {PackageName ","}* ";"                     -> ImportDeclaration{cons("Import_Declaration")}	
+  	"with" PropertySetIdentifier ","
+  	   {PropertySetIdentifier ","}* ";"           -> ImportDeclaration{cons("Import_Declaration")}  
+  	   
+  	 DefiningIdentifier "renames" "package" PackageName ";"  -> AliasDeclaration{cons("Alias_Declaration")}
+  	 DefiningIdentifier? "renames"
+  	   ComponentCategory UniqueComponentTypeReference ";"    -> AliasDeclaration{cons("Alias_Declaration")}
+     DefiningIdentifier? "renames"
+  	   "feature" "group" UniqueComponentTypeReference ";"    -> AliasDeclaration{cons("Alias_Declaration")}
+  	 "renames" PackageName "::" "all" ";"                    -> AliasDeclaration{cons("Alias_Declaration")}	
+  	
+  	 Identifier  -> DefiningPackageName
+  	 Identifier  -> PropertyAssociation

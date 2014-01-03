@@ -1,0 +1,47 @@
+%% Grammar for the AADLLang language
+%% By default, based on an example "entities" syntax
+module Elements
+
+imports Character
+
+exports
+
+   lexical syntax
+   	"("                   -> Delimiter
+   	")"                   -> Delimiter
+   	"["                   -> Delimiter
+   	"]"                   -> Delimiter
+   	"{"                   -> Delimiter
+   	"}"                   -> Delimiter
+   	","                   -> Delimiter
+   	"."                   -> Delimiter
+   	":"                   -> Delimiter
+   	";"                   -> Delimiter
+   	"="                   -> Delimiter
+   	"*"                   -> Delimiter
+   	"+"                   -> Delimiter
+   	"-"                   -> Delimiter
+   	
+   	"::"                    -> Delimiter
+   	"=>"                    -> Delimiter
+   	"+=>"                   -> Delimiter
+   	"->"                    -> Delimiter
+   	"<->"                   -> Delimiter
+   	".."                    -> Delimiter
+   	"-["                    -> Delimiter
+   	"]->"                   -> Delimiter
+   	"{**"                   -> Delimiter
+   	"**}"                   -> Delimiter
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	

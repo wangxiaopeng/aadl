@@ -1,0 +1,1 @@
+Module("AADLLang-Syntax",Imports([Import("AADLLang-Syntax.generated")]),[Language("",[])])

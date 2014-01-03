@@ -1,0 +1,13 @@
+%% Grammar for the AADLLang language
+%% By default, based on an example "entities" syntax
+module AADLLang
+
+imports Character
+
+exports
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  

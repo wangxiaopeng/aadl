@@ -1,0 +1,11 @@
+module String
+
+imports Character
+
+exports
+
+   lexical syntax
+   	[\ ]                -> StringElement
+   	GraphicCharacter    -> StringElement
+   	
+   	"StringElement*"    -> StringLiteral

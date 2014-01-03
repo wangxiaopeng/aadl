@@ -1,0 +1,28 @@
+module Character
+
+exports
+
+  lexical syntax
+    [\ ]                                 -> SpaceCharater
+  	[\"\#\:\;\=\(\)\-\+]                 -> SpecialCharater
+  	[\[\]\'\_\{\}\.\!\$]                 -> SpecialCharater
+  	[\%\*\,\/\<\>\?\^\@]                 -> SpecialCharater
+  	[0-9]                                -> Digit
+  	[A-Z]                                -> UpperCaseIdentifierLetter
+  	[a-z]                                -> LowerCaseIdentifierLetter
+  	UpperCaseIdentifierLetter            -> IdentifierLetter 
+    LowerCaseIdentifierLetter            -> IdentifierLetter 
+  	
+  	IdentifierLetter               -> GraphicCharacter
+  	Digit                          -> GraphicCharacter
+  	SpaceCharater                  -> GraphicCharacter
+  	SpecialCharater                -> GraphicCharacter
+  	
+  	[\t\r\n]                           -> FormatEffector
+  	[]                                 -> OtherControlCharacter
+  	
+  	GraphicCharacter            -> Character
+  	FormatEffector              -> Character
+  	OtherControlCharacter       -> Character
+  	
+

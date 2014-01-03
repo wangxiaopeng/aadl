@@ -1,0 +1,1 @@
+Module("AADLLang-Outliner",Imports([Import("AADLLang-Outliner.generated")]),[Outliner("",[])])

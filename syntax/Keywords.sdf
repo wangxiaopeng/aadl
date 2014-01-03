@@ -1,0 +1,122 @@
+module Keywords
+
+imports Identifier
+
+exports
+
+   lexical syntax
+   	Keyword           -> Identifier {reject}
+   	
+   	"aadlboolean"     -> Keyword
+   	"abstract"        -> Keyword
+   	"annex"           -> Keyword
+   	"calls"           -> Keyword
+   	"constant"        -> Keyword
+   	
+   	"end"             -> Keyword
+   	"false"           -> Keyword
+   	"flows"           -> Keyword
+   	"inherit"         -> Keyword
+   	"list"            -> Keyword	
+   	
+   	"none"            -> Keyword
+   	"out"             -> Keyword
+   	"port"            -> Keyword
+   	"properties"      -> Keyword
+   	"public"          -> Keyword
+   	
+   	"refined"         -> Keyword
+   	"set"             -> Keyword
+   	"subprogram"      -> Keyword
+   	"true"            -> Keyword
+   	"with"            -> Keyword
+   	
+   	"aadlinteger"     -> Keyword
+   	"access"          -> Keyword
+   	"applies"         -> Keyword
+   	"classifier"      -> Keyword
+   	"data"            -> Keyword
+   	
+   	"enumeration"     -> Keyword
+   	"feature"         -> Keyword
+   	"group"           -> Keyword
+   	"initial"         -> Keyword
+   	"memory"          -> Keyword
+   	
+   	"not"             -> Keyword
+   	"package"         -> Keyword
+   	"private"         -> Keyword
+   	"property"        -> Keyword
+   	"range"           -> Keyword
+   	
+   	"renames"         -> Keyword
+   	"sink"            -> Keyword
+   	"system"          -> Keyword
+   	"type"            -> Keyword
+   	
+   	"aadlreal"        -> Keyword
+   	"all"             -> Keyword
+   	"binding"         -> Keyword
+   	"compute"         -> Keyword
+   	"delta"           -> Keyword
+   	
+   	"event"           -> Keyword
+   	"features"        -> Keyword
+   	"implementation"  -> Keyword
+   	"inverse"         -> Keyword
+   	"mode"            -> Keyword
+   	
+   	"of"              -> Keyword
+   	"parameter"       -> Keyword
+   	"process"         -> Keyword
+   	"prototypes"      -> Keyword
+   	"record"          -> Keyword
+   	
+   	"requires"        -> Keyword
+   	"source"          -> Keyword
+   	"thread"          -> Keyword
+   	"units"           -> Keyword
+   	
+   	"aadlstring"      -> Keyword
+   	"and"             -> Keyword
+   	"bus"             -> Keyword
+   	"connections"     -> Keyword
+   	"device"          -> Keyword
+   	
+   	"extends"         -> Keyword
+   	"flow"            -> Keyword
+   	"in"              -> Keyword
+   	"is"              -> Keyword
+   	"modes"           -> Keyword
+   	
+   	"or"              -> Keyword
+   	"path"            -> Keyword
+   	"processor"       -> Keyword
+   	"provides"        -> Keyword
+   	"reference"       -> Keyword
+   	
+   	"self"            -> Keyword
+   	"subcomponents"   -> Keyword
+   	"to"              -> Keyword
+   	"virtual"         -> Keyword
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	

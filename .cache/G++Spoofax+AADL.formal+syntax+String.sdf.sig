@@ -1,0 +1,1 @@
+module(unparameterized("String"),[imports([module(unparameterized("Character"))])],[exports(lexical-syntax([prod([char-class(simple-charclass(present(short("\\ "))))],sort("StringElement"),no-attrs),prod([sort("GraphicCharacter")],sort("StringElement"),no-attrs),prod([lit("\"StringElement*\"")],sort("StringLiteral"),no-attrs)]))])

@@ -1,0 +1,17 @@
+module TypeIdentifier
+
+imports Lexical 
+
+exports
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	Identifier                     -> PackageIdentifier
+  	Identifier                     -> PropertySetIdentifier
+    Identifier                     -> DefiningIdentifier 	
+    Identifier                     -> ComponentTypeIdentifier 	
+  	
+  	
+  	

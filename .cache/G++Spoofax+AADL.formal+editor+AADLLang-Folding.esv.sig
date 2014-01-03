@@ -1,0 +1,1 @@
+Module("AADLLang-Folding",Imports([Import("AADLLang-Folding.generated")]),[Folding("",[])])

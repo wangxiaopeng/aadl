@@ -1,0 +1,1 @@
+module(unparameterized("AADLLang"),[imports([module(unparameterized("Character"))])],[exports(conc-grammars(context-free-start-symbols([]),context-free-syntax([])))])

@@ -1,0 +1,1 @@
+Module("AADLLang-Refactorings",Imports([Import("AADLLang-Refactorings.generated")]),[Refactorings("",[]),Refactorings("",[PrettyPrint(Strategy("pp-aadllang-string")),Refactoring([Sort("ID")],String("\"Rename Entity\""),Strategy("rename-refactoring"),[Cursor],[Shortcut(KeyCombination(["Shift","Alt","R"])),UserInput([IdInputField(String("\"new name\""),String("\"\""))])])])])

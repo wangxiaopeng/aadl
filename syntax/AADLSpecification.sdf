@@ -1,0 +1,14 @@
+module AADLSpecification
+
+imports Packages
+
+exports
+	sorts AADLSpecification
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	Packagespec+                -> AADLSpecification
+  	Propertyset+                -> AADLSpecification
+  	

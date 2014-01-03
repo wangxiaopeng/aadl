@@ -1,0 +1,27 @@
+%% Grammar for the AADLLang language
+%% By default, based on an example "entities" syntax
+module Numerical
+
+imports Character
+
+exports
+
+   lexical syntax
+   	Digit {"_"? Digit}*           -> Numeral
+   	[eE] "+"? Numeral             -> Exponent
+   	[eE] "-" Numeral              -> Exponent
+   	[eE] "+" Numeral              -> PositiveExponent
+   	Numeral PositiveExponent?     -> DecimalIntegerLiteral
+   	Numeral "." Numeral Exponent? -> DecimalRealLiteral
+   	
+   	Digit                         -> ExtentedDigit
+   	[a-fA-F]                      -> ExtentedDigit
+   	Digit Digit?                  -> Base
+   	ExtentedDigit {"_"? ExtentedDigit}*          -> BasedNumeral
+   	Base "#" BasedNumeral "#" PositiveExponent?  -> BasedIntegerLiteral
+   	
+   	DecimalIntegerLiteral         -> IntegerLiteral
+   	BasedIntegerLiteral           -> IntegerLiteral
+   	DecimalRealLiteral            -> RealLiteral
+   	IntegerLiteral                -> NumericLiteral
+   	RealLiteral                   -> NumericLiteral

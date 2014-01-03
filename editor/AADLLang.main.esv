@@ -1,0 +1,16 @@
+module AADLLang.main
+
+imports AADLLang-Builders AADLLang-Refactorings AADLLang-Colorer AADLLang-Completions AADLLang-Folding AADLLang-Outliner AADLLang-References AADLLang-Syntax
+
+language General properties
+                  
+  name          : AADLLang
+  id            : AADL.formal
+  extends       : Root
+                  
+  description   : "Spoofax/IMP-generated editor for the AADLLang language"
+  url           : http://strategoxt.org
+                  
+  extensions    : aad
+  table         : include/AADLLang.tbl
+  start symbols : Start

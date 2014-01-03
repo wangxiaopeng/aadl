@@ -1,0 +1,1 @@
+module(unparameterized("Common"),[],[exports(conc-grammars(conc-grammars(lexical-syntax([]),lexical-restrictions([])),context-free-restrictions([])))])

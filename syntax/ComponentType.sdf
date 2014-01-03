@@ -1,0 +1,40 @@
+module ComponentType
+
+imports Lexical Packages TypeIdentifier
+
+exports
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	AbstractComponentCategory            -> ComponentCategory
+  	SoftwareCategory                     -> ComponentCategory
+  	ExecutionPlatformCategory            -> ComponentCategory
+    CompositeCategory                    -> ComponentCategory
+    
+    "abstract"                           -> AbstractComponentCategory{cons("abstract")}
+    
+    "data"                               -> SoftwareCategory{cons("data")}
+    "subprogram"                         -> SoftwareCategory{cons("subprogram")}
+    "subprogram group"                   -> SoftwareCategory{cons("subprogram_group")}
+    "thread"                             -> SoftwareCategory{cons("thread")}
+    "thread group"                       -> SoftwareCategory{cons("thread_group")}
+    "process"                            -> SoftwareCategory{cons("process")}
+    
+    "system"                             -> CompositeCategory{cons("system")}
+    
+    "memory"                             -> ExecutionPlatformCategory{cons("memory")}
+    "bus"                                -> ExecutionPlatformCategory{cons("bus")}
+    "processor"                          -> ExecutionPlatformCategory{cons("processor")}  
+    "device"                             -> ExecutionPlatformCategory{cons("device")}  
+    "virtual processor"                  -> ExecutionPlatformCategory{cons("virtual_processor")}   
+    "virtual bus"                        -> ExecutionPlatformCategory {cons("virtual_bus")}
+    
+    (PackageName "::")? ComponentTypeIdentifier -> UniqueComponentTypeReference{cons("ComponentTypeIdentifier")}    
+    
+    
+    
+    
+  	
+  	
