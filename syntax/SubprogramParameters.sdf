@@ -1,0 +1,81 @@
+module SubprogramParameters
+
+imports Lexical Constant TypeIdentifier
+imports Prototypes
+exports
+	sorts ParameterSpec ParameterRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningParameterIdentifier ":"
+  	  InOut "parameter"
+  	  DataUniqueComponentClassifierReference    -> ParameterSpec{cons("ParameterSpecReference")}
+    
+    DefiningParameterIdentifier ":"
+  	  InOut "parameter"
+  	  PrototypeIdentifier                       -> ParameterSpec{cons("ParameterSpecIdentifier")}
+    
+    DefiningParameterIdentifier ":" "refined" "to"
+  	  InOut "parameter"
+  	  DataUniqueComponentClassifierReference    -> ParameterRefinement{cons("ParameterRefinementReference")}
+    
+    DefiningParameterIdentifier ":" "refined" "to"
+  	  InOut "parameter"
+  	  PrototypeIdentifier                       -> ParameterRefinement{cons("ParameterRefinementIdentifier")}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

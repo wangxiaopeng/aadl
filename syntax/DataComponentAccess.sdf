@@ -1,0 +1,86 @@
+module DataComponentAccess
+
+imports Lexical Constant TypeIdentifier
+imports Term
+
+exports
+	sorts DataAccessSpec DataAccessRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "provides" "data" "access"
+  	  DataUniqueComponentClassifierReference    -> DataAccessSpec{cons("ProvidesDataAccessSpecReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "requires" "data" "access"
+  	  DataUniqueComponentClassifierReference    -> DataAccessSpec{cons("RequiresDataAccessSpecReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "provides" "data" "access"
+  	  PrototypeIdentifier                       -> DataAccessSpec{cons("ProvidesDataAccessSpecIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "requires" "data" "access"
+  	  PrototypeIdentifier                       -> DataAccessSpec{cons("RequiresDataAccessSpecIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "provides" "data" "access"
+  	  DataUniqueComponentClassifierReference    -> DataAccessRefinement{cons("ProvidesDataAccessRefinementReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "requires" "data" "access"
+  	  DataUniqueComponentClassifierReference    -> DataAccessRefinement{cons("RequiresDataAccessRefinementReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "provides" "data" "access"
+  	  PrototypeIdentifier                       -> DataAccessRefinement{cons("ProvidesDataAccessRefinementIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "requires" "data" "access"
+  	  PrototypeIdentifier                       -> DataAccessRefinement{cons("RequiresDataAccessRefinementIdentifier")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	  

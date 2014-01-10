@@ -1,0 +1,72 @@
+module ConnectionsPort
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports ConnectionsFeature
+imports Term
+exports
+	sorts PortConnection PortConnectionRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"port"  
+  	   SourcePortConnectionReference 
+  	     ConnectionSymbol
+  	   DestinationPortConnectionReference                       -> PortConnection{cons("PortConnection")}
+  	
+  	"port"   -> PortConnectionRefinement{cons("port")}
+  	
+  	ComponentTypePortIdentifier                                          -> PortConnectionReference{cons("ComponentTypePortIdentifier")}
+  	SubcomponentIdentifier "." PortIdentifier                            -> PortConnectionReference{cons("SubcomponentIdentifier_PortIdentifier")}
+  	ComponentTypeFeatureGroupIdentifier "." ElementPortIdentifier        -> PortConnectionReference{cons("ComponentTypeFeatureGroupIdentifier_ElementPortIdentifier ")}
+  	ComponentTypePortIdentifier "." DataSubcomponentIdentifier           -> PortConnectionReference{cons("ComponentTypePortIdentifier_DataSubcomponentIdentifier")}
+  	ComponentTypeRequiresDataAccessIdentifier                            -> PortConnectionReference{cons("ComponentTypeRequiresDataAccessIdentifier")}
+  	DataSubcomponentIdentifier                                           -> PortConnectionReference{cons("DataSubcomponentIdentifier")}
+  	SubcomponentIdentifier "." ProvidesDataAccessIdentifier              -> PortConnectionReference{cons("SubcomponentIdentifier_ProvidesDataAccessIdentifier")}
+  	ComponentTypeFeatureGroupIdentifier "." ElementDataAccessIdentifier  -> PortConnectionReference{cons("ComponentTypeFeatureGroupIdentifier_ElementDataAccessIdentifier")}
+  	DataSubcomponentIdentifier "." DataSubcomponentIdentifier            -> PortConnectionReference{cons("DataSubcomponentIdentifier_DataSubcomponentIdentifier")}
+  	"processor" "." ProcessorPortIdentifier                              -> PortConnectionReference{cons("ProcessorPortIdentifier")}
+  	"self" "." EventOrEventDataSourceIdentifier                          -> PortConnectionReference{cons("EventOrEventDataSourceIdentifier")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

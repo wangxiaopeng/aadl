@@ -1,0 +1,88 @@
+module FlowSpecifications
+
+imports Lexical Constant TypeIdentifier
+imports PropertyAssociations
+imports Connections
+imports Modes
+exports
+	sorts FlowSpec FlowSpecRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	FlowSourceSpec                      -> FlowSpec
+  	FlowSinkSpec                        -> FlowSpec
+  	FlowPathSpec                        -> FlowSpec
+  	
+    FlowSourceSpecRefinement            -> FlowSpecRefinement
+  	FlowSinkSpecRefinement              -> FlowSpecRefinement
+  	FlowPathSpecRefinement              -> FlowSpecRefinement
+  	
+  	DefiningFlowIdentifier ":" "flow" "source" OutFlowFeatureIdentifier
+  	  PropertyAssociations? InModes? ";"   -> FlowSourceSpec{cons("FlowSourceSpec")}
+  	  
+  	DefiningFlowIdentifier ":" "flow" "sink" InFlowFeatureIdentifier
+  	  PropertyAssociations? InModes? ";"   -> FlowSinkSpec{cons("FlowSinkSpec")}
+  	  
+  	DefiningFlowIdentifier ":" "flow" "path" 
+  	  InFlowFeatureIdentifier "->" OutFlowFeatureIdentifier
+  	  PropertyAssociations? InModes? ";"   -> FlowPathSpec{cons("FlowPathSpec")}
+  	
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "source" 
+  	  PropertyAssociations? InModesAndTransitions? ";"   -> FlowSourceSpecRefinement{cons("FlowSourceSpecRefinement")}
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "source" 
+  	  InModesAndTransitions? ";"   -> FlowSourceSpecRefinement{cons("FlowSourceSpecRefinement")}
+  	
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "sink" 
+  	  PropertyAssociations? InModesAndTransitions? ";"   -> FlowSinkSpecRefinement{cons("FlowSinkSpecRefinement")}
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "sink" 
+  	  InModesAndTransitions? ";"   -> FlowSinkSpecRefinement{cons("FlowSinkSpecRefinement")}
+  	
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "path" 
+  	  PropertyAssociations? InModesAndTransitions? ";"   -> FlowSourceSpecRefinement{cons("FlowPathSpecRefinement")}
+  	DefiningFlowIdentifier ":" "refined" "to" "flow" "path" 
+  	  InModesAndTransitions? ";"   -> FlowPathSpecRefinement{cons("FlowPathSpecRefinement")}
+  	
+  	
+  	
+  	FeatureIdentifier                                   -> FlowfeatureIdentifier
+  	FeatureGroupIdentifier                              -> FlowfeatureIdentifier
+  	FeatureGroupIdentifier "." FeatureIdentifier        -> FlowfeatureIdentifier{cons("Com")}
+  	FeatureGroupIdentifier "." FeatureGroupIdentifier   -> FlowfeatureIdentifier{cons("Com")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

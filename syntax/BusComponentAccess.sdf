@@ -1,0 +1,43 @@
+module BusComponentAccess
+
+imports Lexical Constant TypeIdentifier
+imports Term
+exports
+	sorts BusAccessSpec BusAccessRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "provides" "bus" "access"
+  	  BusUniqueComponentClassifierReference    -> BusAccessSpec{cons("ProvidesBusAccessSpecReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "requires" "bus" "access"
+  	  BusUniqueComponentClassifierReference    -> BusAccessSpec{cons("RequiresBusAccessSpecReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "provides" "bus" "access"
+  	  PrototypeIdentifier                       -> BusAccessSpec{cons("ProvidesBusAccessSpecIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":"
+  	  "requires" "bus" "access"
+  	  PrototypeIdentifier                       -> BusAccessSpec{cons("RequiresBusAccessSpecIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "provides" "bus" "access"
+  	  BusUniqueComponentClassifierReference    -> BusAccessRefinement{cons("ProvidesBusAccessRefinementReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "requires" "bus" "access"
+  	  BusUniqueComponentClassifierReference    -> BusAccessRefinement{cons("RequiresBusAccessRefinementReference")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "provides" "bus" "access"
+  	  PrototypeIdentifier                       -> BusAccessRefinement{cons("ProvidesBusAccessRefinementIdentifier")}
+  	
+  	DefiningDataComponentAccessIdentifier ":" "refined" "to"
+  	  "requires" "bus" "access"
+  	  PrototypeIdentifier                       -> BusAccessRefinement{cons("RequiresBusAccessRefinementIdentifier")}
+  	

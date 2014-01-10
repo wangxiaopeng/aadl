@@ -1,0 +1,24 @@
+module ConnectionsFeatureGroup
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports ConnectionsFeature
+imports Term
+
+exports
+	sorts FeatureGroupConnection FeatureGroupConnectionReference
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"feature" "group"  SourceFeatureGroupReference ConnectionSymbol
+  	DestinationFeatureGroupReference                       -> FeatureGroupConnection{cons("FeatureGroupConnection")}
+  	
+  	"feature" "group"    -> FeatureGroupConnectionRefinement{cons("feature_group")}
+  	
+  	ComponentTypeFeatureGroupIdentifier                                    -> FeatureGroupReference{cons("ComponentTypeFeatureGroupIdentifier")}
+  	SubcomponentIdentifier "." FeatureGroupIdentifier                      -> FeatureGroupReference{cons("SubcomponentIdentifier_FeatureGroupIdentifier")}
+  	ComponentTypeFeatureGroupIdentifier "." ElementFeatureGroupIdentifier  -> FeatureGroupReference{cons("ComponentTypeFeatureGroupIdentifier_ElementFeatureGroupIdentifier")}
+  	
+  	
+  	

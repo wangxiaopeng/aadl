@@ -1,0 +1,10 @@
+module Constant
+
+
+exports
+
+   context-free start-symbols
+  
+
+   context-free syntax
+   	"none" ";"            -> NoneStatement{cons("None")}

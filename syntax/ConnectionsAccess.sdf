@@ -1,0 +1,37 @@
+module ConnectionsParameter
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports ConnectionsFeature
+imports Prototypes
+imports Term
+
+exports
+	sorts AccessConnection AccessConnectionReference
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	 ModuleType "access" SourceAccessReference ConnectionSymbol  DestinationAccessReference   -> AccessConnection{cons("AccessConnection")}
+  	 
+  	 ModuleType "access"   -> AccessConnectionRefinement{cons("access")}
+  	 
+  	 RequiresAccessIdentifier                                         -> AccessReference{cons("RequiresAccessIdentifier")}
+  	 ProvidesAccessIdentifier                                         -> AccessReference{cons("ProvidesAccessIdentifier")}
+  	 FeatureGroupIdentifier "." RequiresAccessIdentifier              -> AccessReference{cons("FeatureGroupIdentifier_RequiresAccessIdentifier")}
+  	 FeatureGroupIdentifier "." ProvidesAccessIdentifier              -> AccessReference{cons(" FeatureGroupIdentifier_ ProvidesAccessIdentifier")}
+     SubcomponentIdentifier "." ProvidesAccessIdentifier              -> AccessReference{cons("SubcomponentIdentifier_ProvidesAccessIdentifier")}
+     SubcomponentIdentifier "." RequiresAccessIdentifier              -> AccessReference{cons("SubcomponentIdentifier_RequiresAccessIdentifier")}
+  	 SubprogramCallIdentifier "." RequiresOrProvidesAccessIdentifier  -> AccessReference{cons(" SubprogramCallIdentifier_requiresOrProvidesAccessIdentifier")}
+  	 SubcomponentIdentifier                                           -> AccessReference{cons("SubcomponentIdentifier")}
+  	 "processor" "." ProvidesSubprogramAccessIdentifier               -> AccessReference{cons("processor_ProvidesSubprogramAccessIdentifier")}
+  	 
+  	 
+  	 
+  	 
+  	 
+  	 
+  	 
+  	 
+  	 

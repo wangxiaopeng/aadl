@@ -1,0 +1,97 @@
+module FeaturesAndSharedAccess
+
+imports Lexical Constant TypeIdentifier
+imports Subcomponents
+imports FeatureAbstract
+imports Ports
+imports FeatureGroupsAndTypes
+imports SubprogramParameters
+imports SubprogramAndGroupAccess
+imports DataComponentAccess
+imports BusComponentAccess
+imports Term
+exports
+	sorts Feature
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	
+  	"{" FeatureContainedPropertyAssociation+ "}"          ->  FeatureContainedPropertyAssociations{cons("FeatureContainedPropertyAssociations")}
+  	
+  	AbstractFeatureSpec
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> Feature{cons("AbstractFeatureSpec")}
+  	
+  	PortSpec
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> Feature{cons("PortSpec")}
+  	
+  	FeatureGroupSpec
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> Feature{cons("FeatureGroupSpec")}
+  	
+  	SubcomponentAccessSpec
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> Feature{cons("SubcomponentAccessSpec")}
+  	
+  	ParameterSpec
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> Feature{cons("ParameterSpec")}
+  	
+  	SubprogramAccessSpec            -> SubcomponentAccessSpec
+  	SubprogramGroupAccessSpec       -> SubcomponentAccessSpec
+  	DataAccessSpec                  -> SubcomponentAccessSpec
+  	BusAccessSpec                   -> SubcomponentAccessSpec
+  	
+  	AbstractFeatureRefinement
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> FeatureRefinement{cons("AbstractFeatureRefinement")}
+  	
+  	PortRefinement
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> FeatureRefinement{cons("PortRefinement")}
+  	
+  	FeatureGroupRefinement
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> FeatureRefinement{cons("FeatureGroupRefinement")}
+  	
+  	SubcomponentAccessRefinement
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> FeatureRefinement{cons("SubcomponentAccessRefinement")}
+  	
+  	ParameterRefinement
+  	ArrayDimension?
+  	FeatureContainedPropertyAssociations? ";"    -> FeatureRefinement{cons("ParameterRefinement")}
+  	
+  	SubprogramAccessRefinement            -> SubcomponentAccessRefinement
+  	SubprogramGroupAccessRefinement       -> SubcomponentAccessRefinement
+  	DataAccessRefinement                  -> SubcomponentAccessRefinement
+  	BusAccessRefinement                   -> SubcomponentAccessRefinement
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+

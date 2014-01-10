@@ -1,0 +1,51 @@
+module Modes
+
+imports Lexical Constant TypeIdentifier
+imports PropertyTypes
+imports PropertyDefinitions
+imports PropertyConstants
+imports Term
+
+exports
+	sorts ModesSubclause
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"modes" "(" NoneStatement ")"   -> ModesSubclause{cons("None")}
+  	"modes" "(" Mode+ ")"           -> ModesSubclause{cons("Mode")}
+  	"modes" "(" ModeTransition ")"  -> ModesSubclause{cons("ModeTransition")}
+  	
+  	"requires" "modes" "(" NoneStatement ")"   -> RequiresModesSubclause{cons("RequireNone")}
+  	"requires" "modes" "(" Mode+ ")"           -> RequiresSubclause{cons("RequireMode")}
+  	
+  	"initial"                          -> Initial{cons("Initial")}
+  	"{" ModePropertyAssciation+ "}"    -> ModePropertyAssciations{cons("ModePropertyAssciations")}
+  	"{" ModeTransitionPropertyAssciation+ "}"   -> ModeTransitionPropertyAssciations{cons("ModeTransitionPropertyAssciations")}
+  	
+  	DefiningModeIdentifier ":" Initial? "mode"
+  	  ModePropertyAssciations? ";"     -> Mode{cons("Mode")}
+  	 
+  	(DefiningModeTransitionIdentifier ":")?
+  	SourceModeIdentifier "-[" {ModeTransitionTrigger ","}+ "]->" DestinationModeIdentifier
+  	ModeTransitionPropertyAssciations? ";"     -> ModeTransition{cons("ModeTransition")}
+  	 
+  	UniquePortIdentifier                 -> ModeTransitionTrigger
+  	"self" "." EventSourceIdentifier     -> ModeTransitionTrigger{cons("SelfTtigger")}
+  	"processor" "." PortIdentifier       -> ModeTransitionTrigger{cons("ProcessorTtigger")}
+  	
+  	(SubComponentFeatureGroupOrSubProgramCallIdentifier ".")? PortIdentifier  -> UniquePortIdentifier{cons("UniquePortIdentifier")}
+  	
+  	"in" "mode" "(" {ModeIdentifier ","}+ ")"  -> InModes{cons("InMode")}
+  	
+  	"in" "mode" "(" {ModeName ","}+ ")"  -> ComponentInModes{cons("Component")}
+  	
+  	LocalModeIdentifier ("=>" SubcomponentModeIdentifier)   -> ModeName{cons("ModeName")}
+  	
+  	"in" "mode" "(" {ModeOrTransition ","}+ ")"  -> InModesAndTransitions{cons("InModesAndTransitions")}
+  	 
+  	ModeIdentifier              -> ModeOrTransition
+  	ModeTransitionIdentifier    -> ModeOrTransition
+  	 
+  	 

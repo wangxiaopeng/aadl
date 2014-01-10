@@ -1,0 +1,96 @@
+module Subcomponents
+
+imports Lexical Constant TypeIdentifier  ComponentImplementations
+imports ComponentType
+imports	ComponentImplementations
+imports Modes
+imports PropertyExpressions
+imports Term
+
+exports
+	sorts Subcomponent SubcomponentRefinement 
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	
+  	UniqueComponentClassifierReference                   -> UniqueComponentClassifierReferences
+  	UniqueComponentClassifierReference PrototypeBindings -> UniqueComponentClassifierReferences{cons("UniqueComponentClassifierReferences")}
+  	ArrayDimensions                                  -> ArrayDimensionses
+  	ArrayDimensions ArrayElementImplementationList   -> ArrayDimensionses{cons("ArrayDimensionses")}
+  	"{" SubcomponentPropertyAssociation+ "}"         -> SubcomponentPropertyAssociations{cons("SubcomponentPropertyAssociations")}
+  	"{" ContainedPropertyAssociation+ "}"            -> ContainedPropertyAssociations{cons("ContainedPropertyAssociations")}
+  	
+  	DefiningSubcomponentIdentifier ":" ComponentCategory
+  	UniqueComponentClassifierReferences?
+  	ArrayDimensionses?
+  	SubcomponentPropertyAssociations?
+  	ComponentInModes?                     -> Subcomponent{cons("Subcomponent")}
+  	
+  	DefiningSubcomponentIdentifier ":" ComponentCategory
+  	PrototypeIdentifier?
+  	ArrayDimensionses?
+  	SubcomponentPropertyAssociations?
+  	ComponentInModes?                     -> Subcomponent{cons("Subcomponent")}
+  	
+  	DefiningSubcomponentIdentifier ":" ComponentCategory
+  	UniqueComponentClassifierReferences?
+  	ArrayDimensionses?
+    ContainedPropertyAssociations?
+  	ComponentInModes?                     -> Subcomponent{cons("Subcomponent")}
+  	
+  	DefiningSubcomponentIdentifier ":" ComponentCategory
+  	PrototypeIdentifier?
+  	ArrayDimensionses?
+  	ContainedPropertyAssociations?
+  	ComponentInModes?                     -> Subcomponent{cons("Subcomponent")}
+  	
+  	DefiningSubcomponentIdentifier ":" "refined to" ComponentCategory
+  	UniqueComponentClassifierReferences?
+  	ArrayDimensionses?
+  	SubcomponentPropertyAssociations?
+  	ComponentInModes?                     -> SubcomponentRefinement{cons("Subcomponent_Refinement")}
+  	
+  	DefiningSubcomponentIdentifier ":" "refined to" ComponentCategory
+  	PrototypeIdentifier?
+  	ArrayDimensionses?
+  	SubcomponentPropertyAssociations?
+  	ComponentInModes?                     -> SubcomponentRefinement{cons("Subcomponent_Refinement")}
+  	
+  	DefiningSubcomponentIdentifier ":" "refined to" ComponentCategory
+  	UniqueComponentClassifierReferences?
+  	ArrayDimensionses?
+  	ContainedPropertyAssociations?
+  	ComponentInModes?                     -> SubcomponentRefinement{cons("Subcomponent_Refinement")}
+  	
+  	DefiningSubcomponentIdentifier ":" "refined to" ComponentCategory
+  	PrototypeIdentifier?
+  	ArrayDimensionses?
+  	ContainedPropertyAssociations?
+  	ComponentInModes?                     -> SubcomponentRefinement{cons("Subcomponent_Refinement")}
+  	
+  	UniqueComponentTypeReference             -> UniqueComponentClassifierReference
+  	UniqueComponentImplementationReference   -> UniqueComponentClassifierReference
+  	
+  	ArrayDimension+                     -> ArrayDimensions{cons("ArrayDimensions")}
+  	"[" ArrayDimensionSize? "]"         -> ArrayDimension{cons("ArrayDimension")}
+  	Numeral                             -> ArrayDimensionSize
+  	UniquePropertyConstantIdentifier    -> ArrayDimensionSize
+  	UniquePropertyIdentifier            -> ArrayDimensionSize
+  	
+  	"("UniqueComponentImplementationReference
+  	  PrototypeBindings?
+  	("," UniqueComponentImplementationReference  PrototypeBindings?)* ")"  -> ArrayElementImplementationList{cons("StrCon")}
+  	
+  	Identifier ArraySelection           -> ArraySelectionName{cons("ArraySelectionName")}
+  	("[" SelectionRange "]")+           -> ArraySelection{cons("ArraySelection")}
+  	Numeral (".." Numeral)?             -> SelectionRange{cons("SelectionRange")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

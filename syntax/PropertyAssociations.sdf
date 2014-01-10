@@ -1,0 +1,90 @@
+module PropertyAssociations
+
+imports Lexical Constant TypeIdentifier
+imports PropertyExpressions
+imports Modes
+
+exports
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	
+  	"constant"                    -> Constants{cons("Constants")}
+  	
+  	UniquePropertyIdentifier
+  	"=>"
+  	  Constants? Assignment
+  	  InBinding ";"                -> PropertyAssociation{cons("PropertyAssociation")}
+  	  
+  	UniquePropertyIdentifier
+  	"+=>"
+  	  Constants? Assignment
+  	  InBinding ";"                -> PropertyAssociation{cons("PropertyAssociation")}
+  	  
+  	UniquePropertyIdentifier
+  	"=>" Constants? 
+  	"applies" "to" {ContainedModelElementPath ","}+
+  	 InBinding ";"                -> ContainedPropertyAssociation{cons("ContainedPropertyAssociation")}
+  	  
+  	(PropertySetIdentifier "::")? PropertyNameIdentifier -> UniquePropertyIdentifier{cons("UniquePropertyIdentifier")}
+  	  
+  	{ContainedModelElement "."}+ AnnexPath  -> ContainedModelElementPath{cons("ContainedModelElementPath")}
+  	AnnexPath  -> ContainedModelElementPath{cons("ContainedModelElementPath")}
+  	    
+  	NamedElementIdentifier         -> ContainedModelElement
+  	NamedElementArraySelectionName -> ContainedModelElement
+  	
+  	"annex" AnnexIdentifier "{**" AnnexSpecificPath "**}"   -> AnnexPath{cons("AnnexPath")}
+  	  
+  	"defined by annex"   -> AnnexSpecificPath{cons("StrCon")}  
+  	
+  	PropertyValue       -> Assignment
+  	ModalPropertyValue  -> Assignment
+  	
+  	"(" {PropertyValueInModes ","}+ ")"  -> ModalPropertyValue{cons("ModalPropertyValue")}
+  	
+  	SinglePropertyValue   -> PropertyValue
+  	PropertyListValue     -> PropertyValue
+  	
+  	PropertyExpression    -> SinglePropertyValue
+  	
+  	"(" {PropertyListValue ","}+ ")"     -> PropertyListValue{cons("PropertyListValue")}
+  	"(" {PropertyExpression ","}+ ")"    -> PropertyListValue{cons("PropertyListValue")}
+  	
+  	"in" "binding" "(" {PlatformClassifierReference ","}+ ")"    -> InBinding{cons("InBinding")}
+  	  
+  	ProcessorUniqueComponentClassifierReference           -> PlatformClassifierReference  
+  	VirtualProcessorUniqueComponentClassifierReference    -> PlatformClassifierReference
+  	BusUniqueComponentClassifierReference                 -> PlatformClassifierReference
+  	VirtualBusUniqueComponentClassifierReference          -> PlatformClassifierReference
+  	MemoryUniqueComponentClassifierReference              -> PlatformClassifierReference
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  

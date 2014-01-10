@@ -1,0 +1,30 @@
+module PropertySets
+
+imports Lexical Constant TypeIdentifier
+imports PropertyTypes
+imports PropertyDefinitions
+imports PropertyConstants
+imports Packages
+exports
+	sorts PropertySet
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"property" "set"  DefiningPropertySetIdentifier "is"
+  	   ImportDeclaration*
+  	   PropertyTypeDeclaration*
+  	"end" DefiningPropertySetIdentifier ";"          -> PropertySet{cons("Property_Set")}
+  	
+  	"property" "set"  DefiningPropertySetIdentifier "is"
+  	   ImportDeclaration*
+  	   PropertyDefinitionDeclaration*
+  	"end" DefiningPropertySetIdentifier ";"         -> PropertySet{cons("Property_Set")}
+  	
+  	"property" "set"  DefiningPropertySetIdentifier "is"
+  	   ImportDeclaration*
+  	   PropertyConstant*
+  	"end" DefiningPropertySetIdentifier ";"         -> PropertySet{cons("Property_Set")}
+  	
+  	

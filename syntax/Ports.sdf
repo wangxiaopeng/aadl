@@ -1,0 +1,57 @@
+module Ports
+
+imports Lexical Constant TypeIdentifier
+imports Prototypes
+
+exports
+	sorts PortSpec PortRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningPortIdentifier ":" InOut PortType     -> PortSpec{cons("PortSpec")}
+  	DefiningPortIdentifier ":" "refined" "to" InOut PortType     -> PortRefinement{cons("PortRefinement")}
+  	
+  	"data" "port" DataUniqueComponentClassifierReference?         -> PortType{cons("DataReference")}
+  	"data" "port" DataComponentPrototypeIdentifier?                -> PortType{cons("DataIdentifier")}
+  	"event" "data" "port" DataUniqueComponentClassifierReference?  -> PortType{cons("EventDataReference")}
+  	"event" "data" "port" DataComponentPrototypeIdentifier?       -> PortType{cons("EventDataIdentifier")}
+  	"event" "port"                                                -> PortType{cons("EventIdentifier")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

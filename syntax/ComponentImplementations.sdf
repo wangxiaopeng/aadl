@@ -1,0 +1,67 @@
+module ComponentImplementations
+
+imports Lexical Constant TypeIdentifier  
+imports ComponentType
+imports	Subcomponents
+imports	Subprograms
+imports	Connections
+imports	FlowImplementations
+imports	FlowEndToEnds
+	
+exports
+	sorts ComponentImplementation ComponentImplementationExtension
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	Prototype+                          -> PrototypeMedium{cons("Prototype_Medium")}
+  	NoneStatement                       -> PrototypeMedium
+    Subcomponent+                       -> SubcomponentMedium{cons("Subcomponent_Medium")}
+    NoneStatement                       -> SubcomponentMedium
+    SubprogramCallSequence+             -> SubprogramCallSequenceMedium{cons("SubprogramCallSequence_Medium")}
+    NoneStatement                       -> SubprogramCallSequenceMedium
+    Connection+                         -> ConnectionMedium{cons("Connection_Medium")}
+   	NoneStatement                       -> ConnectionMedium
+    FlowImplementation+                 -> FlowsMedium{cons("Flows_Medium")}
+    EndToEndFlowSpec+                   -> FlowsMedium{cons("Flows_Medium")}
+   	NoneStatement                       -> FlowsMedium
+    PropertyAssociation+                -> PropertiesMedium{cons("Properties_Medium")}
+    ContainedPropertyAssociation+       -> PropertiesMedium{cons("Properties_Medium")}
+   	NoneStatement                       -> PropertiesMedium
+   	
+  	ComponentCategory "implememtation" DefiningComplementationName
+  	  PrototypeBindings?
+  	("prototypes" PrototypeMedium)?
+  	("subcomponent" SubcomponentMedium)?
+  	("call" SubprogramCallSequenceMedium)?
+  	("connections" ConnectionMedium)?
+  	("flows" FlowsMedium)?
+  	ModesSubclause?
+  	("properties" PropertiesMedium)?
+  	AnnexSubclause*?
+  	"end" DefiningComplementationName  -> ComponentImplementation{cons("Component_Implementation")}
+  	
+  	
+  	ComponentCategory "implememtation" DefiningComplementationName
+  	"extends" UniqueComponentImplementationReference
+  	  PrototypeBindings?
+  	("prototypes" PrototypeMedium)?
+  	("subcomponent" SubcomponentMedium)?
+  	("call" SubprogramCallSequenceMedium)?
+  	("connections" ConnectionMedium)?
+  	("flows" FlowsMedium)?
+  	ModesSubclause?
+  	("properties" PropertiesMedium)?
+  	AnnexSubclause*?
+  	"end" DefiningComplementationName  -> ComponentImplementationExtension{cons("Component_Implementation_Exension")}
+  	
+  	ComponentTypeIdentifier "." ComponentImplementationIdentifier  -> ComponentImplementationName{cons("ComponentImplementationName")}
+  	
+  	(PackageName "::")? ComponentImplementationName  -> UniqueComponentImplementationReference{cons("UniqueComponentImplementationReference")}
+  	
+  	
+  	
+  	
+  	
+  	

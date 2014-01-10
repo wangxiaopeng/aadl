@@ -1,0 +1,54 @@
+module FlowEndToEnds
+
+imports Lexical Constant TypeIdentifier
+imports PropertyAssociations
+imports Modes
+exports
+	sorts EndToEndFlowSpec EndToEndFlowSpecRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefinitionEndToEndFlowIdentifier ":" "end" "to" "end" "flow"
+  	  StartSubcomponentFlowOrEtefIdentifier
+  	  ("->" ConnectionIdentifier "->" FlowPathSubcomponentFlowOrEtefIdentifier)+
+  	  PropertyAssociations?
+  	  InModesAndTransitions? ";"                             -> EndToEndFlowSpec{cons("EndToEndFlowSpec")}
+  	
+  	DefinitionEndToEndFlowIdentifier ":" "refined" "to" "end" "to" "end" "flow"
+  	  PropertyAssociations?
+  	  InModesAndTransitions? ";"                             -> EndToEndFlowSpecRefinement{cons("EndToEndFlowSpecRefinement")}
+  	
+  	DefinitionEndToEndFlowIdentifier ":" "refined" "to" "end" "to" "end" "flow"
+  	  InModesAndTransitions ";"                             -> EndToEndFlowSpecRefinement{cons("EndToEndFlowSpecRefinement")}
+  	
+  	SubcomponentFlowIdentifier              -> SubcomponentFlowOrEtefIdentifier
+  	EndToEndFlowIdentifier                  -> SubcomponentFlowOrEtefIdentifier
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

@@ -1,0 +1,107 @@
+module Term
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+
+exports
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  Identifier                     ->	ComponentTypePropertyAssociation
+  Identifier                     ->	SubcomponentPropertyAssociation
+  Identifier                     -> PrototypePropertyAssociation
+  Identifier                     -> AnnexSpecificLanguageConstructs
+  Identifier                     -> AnnexSpecificReusableConstructs
+  
+   Identifier                    -> CallSequencePropertyAssociation
+   Identifier                    -> SubcomponentCallPropertyAssociation
+   Identifier                    -> SubprogramUniqueComponentClassifierReference
+   Identifier                    -> DataUniqueComponentTypeReference
+   Identifier                    -> SubprogramGroupUniqueComponentTypeReference
+   Identifier                    -> AbstractUniqueComponentTypeReference
+   
+   Identifier                    -> FeatureContainedPropertyAssociation
+   
+   Identifier                    -> FeatureGroupContainedPropertyAssociation
+   
+   Identifier                    -> DataUniqueComponentClassifierReference
+   
+   Identifier                    -> SubprogramGroupUniqueComponentClassifierReference
+   
+   Identifier                    -> BusUniqueComponentClassifierReference
+   
+   Identifier                    -> SourceFeatureReference
+   Identifier                    -> DestinationFeatureReference
+   
+   Identifier                    -> SourcePortConnectionReference
+   Identifier                    -> DestinationPortConnectionReference
+  
+   Identifier                    -> SourceParameterReference
+   Identifier                    -> DestinationParameterReference
+   
+   Identifier                    -> SourceAccessReference
+   Identifier                    -> DestinationAccessReference
+   
+   Identifier                    -> SourceFeatureGroupReference
+   Identifier                    -> DestinationFeatureGroupReference
+   
+   Identifier                    -> RealPropertyConstantTerm
+   Identifier                    -> IntegerPropertyConstantTerm
+   
+   Identifier                     -> ConstantPropertyExpression
+   Identifier                     -> ConstantPropertyListValue
+   
+   Identifier                     -> PropertyValueInModes
+   Identifier                     -> ProcessorUniqueComponentClassifierReference
+   Identifier                     -> VirtualProcessorUniqueComponentClassifierReference
+   Identifier                     -> VirtualBusUniqueComponentClassifierReference
+   Identifier                     -> MemoryUniqueComponentClassifierReference 
+   
+   Identifier                     -> BooleanPropertyConstantTerm  
+   Identifier                     -> StringPropertyConstantTerm 
+   Identifier                     -> EnumerationPropertyConstantTerm
+   Identifier                     -> UnitPropertyConstantTerm
+   Identifier                     -> IntegerRangePropertyConstantTerm
+   Identifier                     -> RealRangePropertyConstantTerm
+   
+   Identifier                     -> ModePropertyAssciation
+   Identifier                     -> ModeTransitionPropertyAssciation
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

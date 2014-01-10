@@ -1,493 +1,541 @@
-module ComponentType
+module ComponentTypeExtension
 
-imports Lexical Constant TypeIdentifier Packages
-imports  Prototypes
-imports  FeaturesAndSharedAccess
-imports  FlowSpecifications	
-imports  Modes	
-imports  PropertyAssociations	
-imports  Annex 
-imports Term		
+imports Lexical Constant TypeIdentifier ComponentType
+
 exports
-	sorts ComponentCategory UniqueComponentTypeReference ComponentType ComponentTypeExtension
+	sorts ComponentTypeExtension
 
   context-free start-symbols
   
 
   context-free syntax
-  	AbstractComponentCategory            -> ComponentCategory
-  	SoftwareCategory                     -> ComponentCategory
-  	ExecutionPlatformCategory            -> ComponentCategory
-    CompositeCategory                    -> ComponentCategory
-    
-    "abstract"                           -> AbstractComponentCategory{cons("abstract")}
-    
-    "data"                               -> SoftwareCategory{cons("data")}
-    "subprogram"                         -> SoftwareCategory{cons("subprogram")}
-    "subprogram group"                   -> SoftwareCategory{cons("subprogram_group")}
-    "thread"                             -> SoftwareCategory{cons("thread")}
-    "thread group"                       -> SoftwareCategory{cons("thread_group")}
-    "process"                            -> SoftwareCategory{cons("process")}
-    
-    "system"                             -> CompositeCategory{cons("system")}
-    
-    "memory"                             -> ExecutionPlatformCategory{cons("memory")}
-    "bus"                                -> ExecutionPlatformCategory{cons("bus")}
-    "processor"                          -> ExecutionPlatformCategory{cons("processor")}  
-    "device"                             -> ExecutionPlatformCategory{cons("device")}  
-    "virtual processor"                  -> ExecutionPlatformCategory{cons("virtual_processor")}   
-    "virtual bus"                        -> ExecutionPlatformCategory {cons("virtual_bus")}
-    
-    (PackageName "::")? ComponentTypeIdentifier -> UniqueComponentTypeReference{cons("ComponentTypeIdentifier")}    
-    
-    Prototype+                                    -> Prototypes{cons("Prototypes")}
-    Feature+                                      -> Features{cons("Features")}
-    FlowSpec+                                     -> FlowSpecs{cons("FlowSpecs")}
-    ComponentTypePropertyAssociation+             -> ComponentTypePropertyAssociations{cons("ComponentTypePropertyAssociations")}
-    ContainedPropertyAssociation+                 -> ContainedPropertyAssociations{cons("ContainedPropertyAssociations")}
-    
-    ComponentCategory DefiningComponentTypeIdentifier
+  	ComponentCategory DefiningComponentTypeIdentifier
+      "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ComponentTypePropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" ContainedPropertyAssociations)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     ModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" FlowSpecs)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier ->  ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" Prototypes)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" Features)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     ComponentCategory DefiningComponentTypeIdentifier
+     "extends" UniqueComponentTypeReference
+      PrototypeBindings?
     ("prototypes" NoneStatement)?
     ("features" NoneStatement)?
     ("flows" NoneStatement)?
     RequiresModesSubclause
     ("properties" NoneStatement)?
     AnnexSubclause*?
-    "end" DefiningComponentTypeIdentifier -> ComponentType{cons("Component_Type")}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    "end" DefiningComponentTypeIdentifier -> ComponentTypeExtension{cons("Component_Type_Extension")}
     
     

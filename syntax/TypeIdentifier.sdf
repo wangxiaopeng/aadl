@@ -12,6 +12,119 @@ exports
   	Identifier                     -> PropertySetIdentifier
     Identifier                     -> DefiningIdentifier 	
     Identifier                     -> ComponentTypeIdentifier 	
+  	Identifier                     -> DefiningComponentTypeIdentifier
+  	Identifier                     -> DefiningPackageName
+  	Identifier                     -> DefiningComplementationName
+  	Identifier                     -> ComponentImplementationIdentifier
+  	Identifier                     -> DefiningSubcomponentIdentifier
+  	Identifier                     -> PrototypeIdentifier
   	
+  	Identifier                     -> DefiningPropertyTypeIdentifier
+  	Identifier                     -> DefiningEnumerationLiteralIdentifier
+  	Identifier                     -> UnitsUniquePropertyTypeIdentifier
+  	Identifier                     -> DefiningUnitIdentifier
+  	Identifier                     -> UnitIdentifier
+  	Identifier                     -> NumberUniquePropertyTypeIdentifier
+  	Identifier                     -> ClassifierQualifiedMetaModelIdentifier
+  	Identifier                     -> NamedElementQualifiedMetaModelIdentifier
+  	Identifier                     -> AnnexIdentifier
+  	Identifier                     -> DefiningFieldIdentifier
+  	Identifier                     -> UniquePropertyTypeIdentifier
+  	Identifier                     -> DefiningPropertySetIdentifier
+  	Identifier                     -> DefiningPropertyNameIdentifier
+  	Identifier                     -> DefiningPropertyConstantIdentifier
+  	Identifier                     -> ProperSetIdentifier
+  	Identifier                     -> PropertyConstantIdentifier
   	
+  	Identifier                     -> PropertyNameIdentifier
+  	Identifier                     -> NamedElementIdentifier
+  	Identifier                     -> NamedElementArraySelectionName
+  	
+  	Identifier                     -> RecordfieldIdentifier
+  	Identifier                     -> FunctionIdentifier
+  	Identifier                     -> EnumerationIdentifier
+  	
+  	Identifier                     -> DefiningFlowIdentifier
+  	Identifier                     -> OutFlowFeatureIdentifier
+  	Identifier                     -> InFlowFeatureIdentifier
+  	Identifier                     -> FeatureIdentifier
+  	Identifier                     -> FeatureGroupIdentifier
+  	
+  	Identifier                     -> DefiningModeIdentifier
+  	Identifier                     -> DefiningModeTransitionIdentifier
+  	Identifier                     -> SourceModeIdentifier
+  	Identifier                     -> DestinationModeIdentifier
+  	Identifier                     -> EventSourceIdentifier
+  	Identifier                     -> PortIdentifier
+  	Identifier                     -> SubComponentFeatureGroupOrSubProgramCallIdentifier
+  	Identifier                     -> ModeIdentifier
+  	Identifier                     -> LocalModeIdentifier
+  	Identifier                     -> SubcomponentModeIdentifier
+  	Identifier                     -> ModeTransitionIdentifier
+  	
+  	Identifier                     -> FlowIdentifier
+  	Identifier                     -> ConnectionIdentifier
+  	Identifier                     -> SubcomponentIdentifier
+  	Identifier                     -> FlowSpecIdentifier
+  	Identifier                     -> DataSubcomponentIdentifier
+  	Identifier                     -> RequiresDataAccessIdentifier
+  	Identifier                     -> ProvidesDataAccessIdentifierIdentifier
+  	
+  	Identifier                     -> DefinitionEndToEndFlowIdentifier
+  	Identifier                     -> StartSubcomponentFlowOrEtefIdentifier
+  	Identifier                     -> FlowPathSubcomponentFlowOrEtefIdentifier
+  	Identifier                     -> SubcomponentFlowIdentifier
+  	Identifier                     -> EndToEndFlowIdentifier
+  	
+  	Identifier                     -> DefiningPrototypeIdentifier
+  	Identifier                     -> FeatureGroupTypePrototypeIdentifier
+  	Identifier                     -> FeaturePrototypeIdentifier
+  	
+  	Identifier                     -> DefiningCallSequenceIdentifier
+  	Identifier                     -> DefiningCallIdentifier
+  	Identifier                     -> DataProvidesSubprogramAccessIdentifier
+  	Identifier                     -> ProvidesSubprogramAccessIdentifier
+  	Identifier                     -> RequiresSubprogramAccessIdentifier
+  	Identifier                     -> ComponentPrototypeIdentifier
+  	Identifier                     -> SubprogramSubcomponentIdentifier
+  	Identifier                     -> SubprogramGroupSubcomponentIdentifier
+  	Identifier                     -> RequiresSubprogramGroupAccessIdentifier
+  	
+  	Identifier                     -> DefiningAbstractFeatureIdentifier
+  	Identifier                     -> DefiningFeatureGroupIdentifier
+  	Identifier                     -> FeatureGroupTypeIdentifier
+  	
+  	Identifier                     -> DefiningPortIdentifier
+  	Identifier                     -> DataComponentPrototypeIdentifier 
+  	
+  	Identifier                     -> DefiningSubprogramAccessIdentifier
+  	Identifier                     -> DefiningSubprogramGroupAccessIdentifier
+  	
+  	Identifier                     -> DefiningParameterIdentifier
+  	
+  	Identifier                     -> DefiningDataComponentAccessIdentifier
+  	
+  	Identifier                     -> DefiningConnectionIdentifier
+  	
+  	Identifier                     -> ComponentTypeFeatureIdentifier
+  	Identifier                     -> ComponentTypeFeatureGroupIdentifier
+  	Identifier                     -> SubprogramCallIdentifier
+  	
+  	Identifier                     -> ComponentTypePortIdentifier
+  	Identifier                     -> ElementPortIdentifier
+  	Identifier                     -> ComponentTypeRequiresDataAccessIdentifier
+  	Identifier                     -> ProvidesDataAccessIdentifier
+  	Identifier                     -> ElementDataAccessIdentifier
+  	Identifier                     -> ProcessorPortIdentifier
+  	Identifier                     -> EventOrEventDataSourceIdentifier 
+  	
+  	Identifier                     -> ComponentTypeParameterIdentifier
+  	Identifier                     -> ParameterIdentifier
+  	Identifier                     -> ElementPortOrParameterIdentifier
+  	
+  	Identifier                     -> RequiresAccessIdentifier
+  	Identifier                     -> ProvidesAccessIdentifier
+  	Identifier                     -> RequiresOrProvidesAccessIdentifier
+  	
+  	Identifier                     -> ElementFeatureGroupIdentifier
   	

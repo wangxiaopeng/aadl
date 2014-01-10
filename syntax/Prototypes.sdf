@@ -1,0 +1,86 @@
+module Prototypes
+
+imports Lexical Constant TypeIdentifier
+imports ComponentType 
+imports Term
+exports
+	sorts Prototype
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"{" PrototypePropertyAssociation+ "}"             -> PrototypePropertyAssociations{cons("PrototypePropertyAssociations")}
+  	"[" "]"                                           -> Brackets{cons("Brackets")}
+  	
+  	DefiningPrototypeIdentifier ":"
+  	  ComponentPrototype
+  	PrototypePropertyAssociations? ";"      -> Prototype{cons("Component_Prototype")}
+  	
+  	DefiningPrototypeIdentifier ":"
+  	  FeatureGroupTypePrototype
+  	PrototypePropertyAssociations? ";"      -> Prototype{cons("FeatureGroupType_Prototype")}  	
+   
+    DefiningPrototypeIdentifier ":"
+  	  FeaturePrototype
+  	PrototypePropertyAssociations? ";"      -> Prototype{cons("Feature_Prototype")}
+  	
+  	ComponentCategory UniqueComponentClassifierReference? Brackets? -> ComponentPrototype{cons("ComponentPrototype")}
+  	
+  	"feature" "group" UniqueFeatureGroupTypeReference?  -> FeatureGroupTypePrototype{cons("FeatureGroupTypePrototype")}
+  	
+  	"in" "featute" UniqueComponentClassifierReference?  -> FeaturePrototype{cons("FeaturePrototype")}
+  	
+  	DefiningPrototypeIdentifier ":" "refinied" "to"
+  	  ComponentPrototype
+  	PrototypePropertyAssociations? ";"      -> PrototypeRefinement{cons("Component_Prototype_Refinement")}
+  	
+  	DefiningPrototypeIdentifier ":" "refinied" "to"
+  	  FeatureGroupTypePrototype
+  	PrototypePropertyAssociations? ";"      -> PrototypeRefinement{cons("FeatureGroupType_Prototype_Refinement")}  	
+   
+    DefiningPrototypeIdentifier ":" "refinied" "to"
+  	  FeaturePrototype
+  	PrototypePropertyAssociations? ";"      -> PrototypeRefinement{cons("Feature_Prototype_Refinement")}
+  	
+  	"(" {PrototypeBinding ","}+  ")"  -> PrototypeBindings{cons("PrototypeBindings")}
+  	
+  	PrototypeIdentifier "=>" ComponentPrototypeActual         -> PrototypeBinding{cons("PrototypeBinding")}
+  	PrototypeIdentifier "=>" ComponentPrototypeActualList     -> PrototypeBinding{cons("PrototypeBinding")}
+  	PrototypeIdentifier "=>" FeatureGroupTypePrototypeActual  -> PrototypeBinding{cons("PrototypeBinding")}
+  	PrototypeIdentifier "=>" FeaturePrototypeActual           -> PrototypeBinding{cons("PrototypeBinding")}
+  	
+  	ComponentCategory 
+  	  UniqueComponentClassifierReference
+  	  PrototypeBindings?                -> ComponentPrototypeActual{cons("ComponentPrototypeActual")}
+  	
+  	ComponentCategory 
+  	  PrototypeIdentifier                -> ComponentPrototypeActual{cons("ComponentPrototypeActual")}
+  	
+  	"(" {ComponentPrototypeActual ","}+ ")"  -> ComponentPrototypeActualList{cons("ComponentPrototypeActualList")}
+  	
+  	"feature" "group" UniqueFeatureGroupTypeReference
+  	PrototypeBindings?                              -> FeatureGroupTypePrototypeActual{cons("FeatureGroupTypePrototypeActual")}
+  	
+  	"feature" "group" FeatureGroupTypePrototypeIdentifier                             -> FeatureGroupTypePrototypeActual{cons("FeatureGroupTypePrototypeActual")}
+  	
+  	"in"                 -> InOut{cons("In")}
+  	"out"                -> InOut{cons("Out")}
+  	"in" "out"           -> InOut{cons("In_Out")}
+  	
+  	"event"              -> PortTypes{cons("Event")}
+  	"data"               -> PortTypes{cons("Data")}
+  	"event" "data"       -> PortTypes{cons("Event_Data")}
+  	
+  	"bus"                    -> ModuleType{cons("Bus")}
+  	"data"                   -> ModuleType{cons("Data")}
+  	"subprogram"             -> ModuleType{cons("Subprogram")}
+  	"subprogram" "group"     -> ModuleType{cons("Subprogram_Group")}
+  	
+  	InOut PortTypes "port"    -> FeaturePrototypeActual{cons("Port")} 
+  	"requires" ModuleType "access" UniqueComponentClassifierReference?   -> FeaturePrototypeActual{cons("Requires_Access")} 	
+  	"provides" ModuleType "access" UniqueComponentClassifierReference?   -> FeaturePrototypeActual{cons("Provides_Access")} 
+  	"in" "feature" FeaturePrototypeIdentifier         ->  FeaturePrototypeActual{cons("In_Feature")}
+  	"out" "feature" FeaturePrototypeIdentifier        ->  FeaturePrototypeActual{cons("Out_Feature")}
+  	
+  	

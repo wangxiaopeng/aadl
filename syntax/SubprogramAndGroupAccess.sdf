@@ -1,0 +1,111 @@
+module SubprogramAndGroupAccess
+
+imports Lexical Constant TypeIdentifier
+imports Term
+exports
+	sorts SubprogramAccessSpec SubprogramAccessRefinement SubprogramGroupAccessSpec SubprogramGroupAccessRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningSubprogramAccessIdentifier ":"
+  	  "provides" "subprogram" "access"
+  	  SubprogramUniqueComponentClassifierReference?      -> SubprogramAccessSpec{cons("ProvidesSubprogramAccessSpecReference")}
+  	
+  	DefiningSubprogramAccessIdentifier ":"
+  	  "requires" "subprogram" "access"
+  	  SubprogramUniqueComponentClassifierReference?      -> SubprogramAccessSpec{cons("RequiresSubprogramAccessSpecReference")}
+  	
+  	DefiningSubprogramAccessIdentifier ":"
+  	  "provides" "subprogram" "access"
+  	  PrototypeIdentifier?      -> SubprogramAccessSpec{cons("ProvidesSubprogramAccessSpecIdentifier")}
+  	
+  	DefiningSubprogramAccessIdentifier ":"
+  	  "requires" "subprogram" "access"
+  	  PrototypeIdentifier?      -> SubprogramAccessSpec{cons("RequiresSubprogramAccessSpecIdentifier")}
+  	
+  	DefiningSubprogramAccessIdentifier ":" "refined" "to"
+  	  "provides" "subprogram" "access"
+  	  SubprogramUniqueComponentClassifierReference?      -> SubprogramAccessRefinement{cons("ProvidesSubprogramAccessRefinementReference")}
+  	
+  	DefiningSubprogramAccessIdentifier ":" "refined" "to"
+  	  "requires" "subprogram" "access"
+  	  SubprogramUniqueComponentClassifierReference?      -> SubprogramAccessRefinement{cons("RequiresSubprogramAccessRefinementReference")}
+  	
+  	DefiningSubprogramAccessIdentifier ":" "refined" "to"
+  	  "provides" "subprogram" "access"
+  	  PrototypeIdentifier?      -> SubprogramAccessRefinement{cons("ProvidesSubprogramAccessRefinementIdentifier")}
+  	
+  	DefiningSubprogramAccessIdentifier ":" "refined" "to"
+  	  "requires" "subprogram" "access"
+  	  PrototypeIdentifier?      -> SubprogramAccessRefinement{cons("RequiresSubprogramAccessRefinementIdentifier")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":"
+  	  "provides" "subprogram" "group" "access"
+  	  SubprogramGroupUniqueComponentClassifierReference?      -> SubprogramGroupAccessSpec{cons("ProvidesSubprogramGroupAccessSpecReference")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":"
+  	  "requires" "subprogram" "group" "access"
+  	  SubprogramGroupUniqueComponentClassifierReference?      -> SubprogramGroupAccessSpec{cons("RequiresSubprogramGroupAccessSpecReference")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":"
+  	  "provides" "subprogram" "group" "access"
+  	  PrototypeIdentifier?      -> SubprogramGroupAccessSpec{cons("ProvidesSubprogramGroupAccessSpecIdentifier")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":"
+  	  "requires" "subprogram" "group" "access"
+  	  PrototypeIdentifier?      -> SubprogramGroupAccessSpec{cons("RequiresSubprogramGroupAccessSpecIdentifier")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":" "refined" "to"
+  	  "provides" "subprogram" "group" "access"
+  	  SubprogramGroupUniqueComponentClassifierReference?      -> SubprogramGroupAccessRefinement{cons("ProvidesSubprogramGroupAccessRefinementReference")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":" "refined" "to"
+  	  "requires" "subprogram" "group" "access"
+  	  SubprogramGroupUniqueComponentClassifierReference?      -> SubprogramGroupAccessRefinement{cons("RequiresSubprogramGroupAccessRefinementReference")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":" "refined" "to"
+  	  "provides" "subprogram" "group" "access"
+  	  PrototypeIdentifier?      -> SubprogramGroupAccessRefinement{cons("ProvidesSubprogramGroupAccessRefinementIdentifier")}
+  	
+  	DefiningSubprogramGroupAccessIdentifier ":" "refined" "to"
+  	  "requires" "subprogram" "group" "access"
+  	  PrototypeIdentifier?      -> SubprogramGroupAccessRefinement{cons("RequiresSubprogramGroupAccessRefinementIdentifier")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	  
+

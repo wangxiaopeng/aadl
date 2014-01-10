@@ -1,0 +1,61 @@
+module FlowImplementations
+
+imports Lexical Constant TypeIdentifier
+imports PropertyAssociations
+imports FlowSpecifications
+exports
+	sorts FlowImplementation
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	FlowSourceImplementation
+  	PropertyAssociations ? 
+  	InModesAndTransitions? ";"            -> FlowImplementation{cons("FlowImplementation")}
+  	
+  	FlowSinkImplementation
+  	PropertyAssociations ? 
+  	InModesAndTransitions? ";"            -> FlowImplementation{cons("FlowImplementation")}
+  	
+  	FlowPathImplementation
+  	PropertyAssociations ? 
+  	InModesAndTransitions? ";"            -> FlowImplementation{cons("FlowImplementation")}
+  	
+  	
+  	FlowIdentifier ":" "flow" "source"
+  	  (SubcomponentFlowIdentifier "->" ConnectionIdentifier "->")*
+  	  OutFlowFeatureIdentifier                       -> FlowSourceImplementation{cons("FlowSourceImplementation")}
+  	
+  	FlowIdentifier ":" "flow" "sink"
+  	  InFlowFeatureIdentifier
+  	  (ConnectionIdentifier "->" SubcomponentFlowIdentifier "->")* -> FlowSinkImplementation{cons("FlowSinkImplementation")}
+  	
+  	FlowIdentifier ":" "flow" "path"
+  	  InFlowFeatureIdentifier
+  	  (ConnectionIdentifier "->" SubcomponentFlowIdentifier "->")+ "->" ConnectionIdentifier
+  	  OutFlowFeatureIdentifier                       -> FlowPathImplementation{cons("FlowPathImplementation")}
+  	
+  	SubcomponentIdentifier ("." FlowSpecIdentifier)?  -> SubcomponentFlowIdentifier{cons("SubcomponentFlowIdentifier")}
+  	DataComponentReference                            -> SubComponentFlowIdentifier
+  	
+  	
+  	DataSubcomponentIdentifier                    -> DataComponentReference
+  	RequiresDataAccessIdentifier                  -> DataComponentReference
+  	ProvidesDataAccessIdentifierIdentifier        -> DataComponentReference
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

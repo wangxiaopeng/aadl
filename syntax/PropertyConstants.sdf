@@ -1,0 +1,32 @@
+module PropertyConstants
+
+imports Lexical Constant TypeIdentifier
+imports PropertyTypes
+imports PropertyDefinitions
+exports
+	sorts PropertyConstant
+
+   context-free start-symbols
+  
+
+   context-free syntax
+   	SingleValuedPropertyConstant         -> PropertyConstant
+   	MultiValuedPropertyConstant          -> PropertyConstant
+   	
+   	DefiningPropertyConstantIdentifier ":" "constant"
+   	  PropertyTypeDesignator
+   	"=>" ConstantPropertyExpression       -> SingleValuedPropertyConstant{cons("SingleValuedPropertyConstant")}
+   	
+   	DefiningPropertyConstantIdentifier ":" "constant" ("list" "of")+
+   	  PropertyTypeDesignator "=>" ConstantPropertyListValue      -> MultiValuedPropertyConstant{cons("MultiValuedPropertyConstant")}
+   	
+   	(ProperSetIdentifier "::")? PropertyConstantIdentifier -> UniquePropertyConstantIdentifier{cons("UniquePropertyConstantIdentifier")}
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	
+   	

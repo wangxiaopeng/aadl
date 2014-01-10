@@ -1,0 +1,88 @@
+module Connections
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports PropertyAssociations
+imports ConnectionsFeature
+imports ConnectionsPort
+imports ConnectionsParameter
+imports ConnectionsAccess
+imports ConnectionsFeatureGroup
+exports
+	sorts Connection ConnectionRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	
+  	"{" PropertyAssociation+ "}"      -> PropertyAssociationes{cons("PropertyAssociationes")}
+  	
+  	DefiningConnectionIdentifier ":"
+  	FeatureConnection
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> Connection{cons("FeatureConnection")}
+  	
+  	DefiningConnectionIdentifier ":"
+  	PortConnection
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> Connection{cons("PortConnection")}
+  	
+  	DefiningConnectionIdentifier ":"
+  	ParameterConnection
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> Connection{cons("ParameterConnection")}
+  	
+  	DefiningConnectionIdentifier ":"
+  	AccessConnection
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> Connection{cons("AccessConnection")}
+  	
+  	DefiningConnectionIdentifier ":"
+  	FeatureGroupConnection
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> Connection{cons("FeatureGroupConnection")}
+  	
+  	DefiningConnectionIdentifier ":" "refined" "to"
+  	FeatureConnectionRefinement
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> ConnectionRefinement{cons("FeatureConnectionRefinement")}
+  	
+  	DefiningConnectionIdentifier ":" "refined" "to"
+  	PortConnectionRefinement
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> ConnectionRefinement{cons("PortConnectionRefinement")}
+  	
+  	DefiningConnectionIdentifier ":" "refined" "to"
+  	ParameterConnectionRefinement
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> ConnectionRefinement{cons("ParameterConnectionRefinement")}
+  	
+  	DefiningConnectionIdentifier ":" "refined" "to"
+  	AccessConnectionRefinement
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> ConnectionRefinement{cons("AccessConnectionRefinement")}
+  	
+  	DefiningConnectionIdentifier ":" "refined" "to"
+  	FeatureGroupConnectionRefinement
+  	PropertyAssociationes?
+  	InModesAndTransitions? ";"          -> ConnectionRefinement{cons("FeatureGroupConnectionRefinement")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

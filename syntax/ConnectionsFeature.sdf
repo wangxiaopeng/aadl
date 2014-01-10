@@ -1,0 +1,60 @@
+module ConnectionsFeature
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports PropertyAssociations
+imports Term
+exports
+	sorts FeatureConnection
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"feature"  SourceFeatureReference ConnectionSymbol
+  	DestinationFeatureReference                       -> FeatureConnection{cons("FeatureConnection")}
+  	
+  	DirectionalConnectionSymbol      -> ConnectionSymbol{cons("DConnectionSymbol")}
+  	BidirectionalConnectionSymbol    -> ConnectionSymbol{cons("BConnectionSymbol")}
+  	
+  	"->"                    -> DirectionalConnectionSymbol{cons("->")}
+  	"<->"                   -> BidirectionalConnectionSymbol{cons("<->")}
+  	
+  	ComponentTypeFeatureIdentifier   -> FeatureReference
+  	ComponentTypeFeatureGroupIdentifier "." FeatureIdentifier  -> FeatureReference{cons("ComponentTypeFeatureGroupIdentifier_FeatureIdentifier")}
+  	SubcomponentIdentifier "." FeatureIdentifier  -> FeatureReference{cons("SubcomponentIdentifier_FeatureIdentifier")}
+  	SubprogramCallIdentifier "." FeatureIdentifier  -> FeatureReference{cons("SubprogramCallIdentifier_FeatureIdentifier")}
+  	
+  	"feature"     -> FeatureConnectionRefinement{cons("feature")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

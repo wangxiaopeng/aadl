@@ -1,0 +1,71 @@
+module PropertyExpressions
+
+imports Lexical Constant TypeIdentifier
+imports PropertyTypes PropertyAssociations
+imports ComponentType
+exports
+	sorts PropertyExpression
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	BooleanTerm                   -> PropertyExpression
+  	RealTerm                      -> PropertyExpression
+  	IntegerTerm                   -> PropertyExpression
+  	StringTerm                    -> PropertyExpression
+  	EnumerationTerm               -> PropertyExpression
+  	IntegerRangeTerm              -> PropertyExpression
+  	UnitTerm                      -> PropertyExpression
+  	RealRangeTerm                 -> PropertyExpression
+  	PropertyTerm                  -> PropertyExpression
+  	ComponentClassifierTerm       -> PropertyExpression
+  	ReferenceTerm                 -> PropertyExpression
+  	RecordTerm                    -> PropertyExpression
+  	ComputedTerm                  -> PropertyExpression
+  	
+  	BooleanValue                          -> BooleanTerm
+  	BooleanPropertyConstantTerm           -> BooleanTerm
+  	"not" BooleanTerm                     -> BooleanTerm{cons("Not")}
+  	BooleanTerm "and" BooleanTerm         -> BooleanTerm{cons("And")}
+  	BooleanTerm "or" BooleanTerm          -> BooleanTerm{cons("Or")}
+  	"(" BooleanTerm ")"                   -> BooleanTerm{cons("BooleanTerm")}
+  	
+  	"true"       -> BooleanValue{cons("True")}
+  	"false"      -> BooleanValue{cons("False")}
+  	
+  	SignedAadlintegerOrConstant   -> IntegerTerm
+  	
+  	SignedAadlrealOrConstant      -> RealTerm
+  	
+  	StringLiteral                 -> StringTerm
+  	StringPropertyConstantTerm    -> StringTerm
+  	
+  	EnumerationIdentifier            -> EnumerationTerm
+  	EnumerationPropertyConstantTerm  -> EnumerationTerm
+  	
+  	UnitIdentifier                  -> UnitTerm
+  	UnitPropertyConstantTerm        -> UnitTerm
+  	
+  	IntegerTerm ".." IntegerTerm ("data" IntegerTerm)?  -> IntegerRangeTerm{cons("IntegerRangeTerm")}
+  	IntegerRangePropertyConstantTerm                    -> IntegerRangeTerm{cons("IntegerRangeTerm")}
+  	
+  	RealTerm ".." RealTerm ("data" RealTerm)?     -> RealRangeTerm{cons("RealRangeTerm")}
+  	RealRangePropertyConstantTerm                 -> RealRangeTerm{cons("RealRangeTerm")}
+  	
+  	(PropertySetIdentifier "::") PropertyNameIdentifier -> PropertyTerm{cons("PropertyTerm")}
+  	
+  	(PropertySetIdentifier "::") PropertyConstantIdentifier -> PropertyConstantTerm{cons("PropertyConstantTerm")}
+  	
+  	"classifier" "(" UniqueComponentTypeReference ")" -> ComponentClassifierTerm{cons("ComponentClassifierTerm")}
+  	
+  	"reference" "(" ContainedModelElementPath ")"  -> ReferenceTerm{cons("ReferenceTerm")}
+  	
+  	"(" (RecordfieldIdentifier "=>" PropertyValue ";")+ ")" -> RecordTerm{cons("RecordTerm")}
+  	
+  	"compute" "(" FunctionIdentifier ")"   -> ComputedTerm{cons("ComputedTerm")}
+  	
+  	
+  	
+  	
+  	

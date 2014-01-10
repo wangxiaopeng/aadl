@@ -1,7 +1,7 @@
 module AADLSpecification
 
 imports Packages
-
+imports PropertySets
 exports
 	sorts AADLSpecification
 
@@ -9,6 +9,6 @@ exports
   
 
   context-free syntax
-  	Packagespec+                -> AADLSpecification
-  	Propertyset+                -> AADLSpecification
+  	Packagespec+                -> AADLSpecification{cons("Packagespec_AADLSpecification")}
+  	PropertySet+                -> AADLSpecification{cons("PropertySet_AADLSpecification")}
   	

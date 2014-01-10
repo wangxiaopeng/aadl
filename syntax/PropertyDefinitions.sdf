@@ -1,0 +1,66 @@
+module PropertyDefinitions
+
+imports Lexical Constant TypeIdentifier
+imports PropertyTypes
+imports Subcomponents
+exports
+	sorts PropertyDefinitionDeclaration
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	
+  	"inherit"                       -> Inherit{cons("Inherit")}
+  	
+  	DefiningPropertyNameIdentifier ":"
+  	  Inherit?
+  	  SingleValuedProperty
+  	  "applies" "to" "(" {PropertyOwner ","}+ ")" ";"  -> PropertyDefinitionDeclaration{cons("PropertyDefinitionDeclaration")}
+  	  
+  	DefiningPropertyNameIdentifier ":"
+  	  Inherit?
+  	  MultiValuedProperty
+  	  "applies" "to" "(" {PropertyOwner ","}+ ")" ";"  -> PropertyDefinitionDeclaration{cons("PropertyDefinitionDeclaration")}
+  	  
+  	  PropertyTypeDesignator ("=>" DefaultPropertyExpression)? -> SingleValuedProperty{cons("SingleValuedProperty")}
+  	  ("list" "of")+ PropertyTypeDesignator ("=>" DefaultPropertyListValue)? -> MultiValuedProperty{cons("MultiValuedProperty")}
+  	  
+  	  NamedElementQualifiedMetaModelIdentifier  -> PropertyOwner
+  	  UniqueClassifierReference                 -> PropertyOwner
+  	  
+  	  UniqueComponentClassifierReference           -> UniqueClassifierReference 
+  	  UniqueFeatureGroupTypeReference              -> UniqueClassifierReference 
+  	  
+  	  Identifier                     -> DefaultPropertyExpression
+  	  Identifier                     -> DefaultPropertyListValue
+ 
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  
+  	  

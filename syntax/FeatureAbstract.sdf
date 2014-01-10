@@ -1,0 +1,56 @@
+module FeatureAbstract
+
+imports Lexical Constant TypeIdentifier
+imports FeaturesAndSharedAccess
+imports Ports
+imports FeatureGroupsAndTypes
+imports SubprogramParameters
+exports
+	sorts AbstractFeatureSpec AbstractFeatureRefinement
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	DefiningAbstractFeatureIdentifier ":"
+  	"in" "feature" FeaturePrototypeIdentifier?    -> AbstractFeatureSpec{cons("In_AbstractFeatureSpec")}
+  	
+  	DefiningAbstractFeatureIdentifier ":"
+  	"out" "feature" FeaturePrototypeIdentifier?   -> AbstractFeatureSpec{cons("Out_AbstractFeatureSpec")}
+  	
+  	DefiningAbstractFeatureIdentifier ":" "refined" "to"
+  	"in" "feature" FeaturePrototypeIdentifier?    -> AbstractFeatureRefinement{cons("In_AbstractFeatureRefinement")}
+  	
+  	DefiningAbstractFeatureIdentifier ":" "refined" "to"
+  	"out" "feature" FeaturePrototypeIdentifier?   -> AbstractFeatureRefinement{cons("Out_AbstractFeatureRefinement")}
+  	
+  	PortRefinement                    -> AbstractFeatureRefinement
+  	FeatureGroupRefinement            -> AbstractFeatureRefinement
+  	SubcomponentAccessRefinement      -> AbstractFeatureRefinement
+  	ParameterRefinement               -> AbstractFeatureRefinement
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  	

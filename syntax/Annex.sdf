@@ -1,0 +1,17 @@
+module Annex
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+import Term
+exports
+	sorts AnnexSubclause AnnexLibrary
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"annex" AnnexIdentifier "none" InModes? ";"    -> AnnexSubclause{cons("AnnexS_None")}
+  	"annex" AnnexIdentifier "{**" AnnexSpecificLanguageConstructs "**}" InModes? ";"    -> AnnexSubclause{cons("AnnexS")}
+  	
+  	"annex" AnnexIdentifier "none" ";"    -> AnnexLibrary{cons("AnnexL_None")}
+  	"annex" AnnexIdentifier "{**" AnnexSpecificReusableConstructs "**}" ";"    -> AnnexLibrary{cons("AnnexL")}

@@ -1,0 +1,33 @@
+module ConnectionsParameter
+
+imports Lexical Constant TypeIdentifier
+imports Modes
+imports ConnectionsFeature
+imports Term
+
+exports
+	sorts ParameterConnection ParameterConnectionReference
+
+  context-free start-symbols
+  
+
+  context-free syntax
+  	"parameter"  SourceParameterReference ConnectionSymbol
+  	DestinationParameterReference                       -> ParameterConnection{cons("ParameterConnection")}
+  	
+  	"parameter"    -> ParameterConnectionRefinement{cons("parameter")}
+  	
+  	ComponentTypeParameterIdentifier ("." DataSubcomponentIdentifier)?   -> ParameterReference{cons("ComponentTypeParameterIdentifier")}
+  	SubprogramCallIdentifier "." ParameterIdentifier                     -> ParameterReference{cons("SubprogramCallIdentifier_ParameterIdentifier")}
+  	ComponentTypePortIdentifier ("." DataSubcomponentIdentifier)?        -> ParameterReference{cons("ComponentTypePortIdentifier")}
+  	DataSubcomponentIdentifier                                           -> ParameterReference{cons("DataSubcomponentIdentifier")}
+  	RequiresDataAccessIdentifier                                         -> ParameterReference{cons("RequiresDataAccessIdentifier")}
+  	ComponentTypeFeatureGroupIdentifier "." ElementDataAccessIdentifier  -> ParameterReference{cons("ComponentTypeFeatureGroupIdentifier_ElementDataAccessIdentifier")}
+  	ComponentTypeFeatureGroupIdentifier "." ElementPortOrParameterIdentifier  -> ParameterReference{cons("ComponentTypeFeatureGroupIdentifier_ ElementPortOrParameterIdentifier")}
+  	
+  	
+  	
+  	
+  	
+  	
+  	
