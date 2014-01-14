@@ -31,6 +31,7 @@ exports
   	NameVisibilityDeclaration* AADLDeclaration*    -> PackDeclarations{cons("Pack_Declarations")}
   	
   	{PackageIdentifier "::"}* PackageIdentifier    -> PackageName{cons("Pac_kageName")}
+  	PackageName                                    -> DefiningPackageName
   	
   	ClassifierDeclaration                          -> AADLDeclaration
   	AnnexLibrary                                   -> AADLDeclaration

@@ -1,0 +1,1 @@
+module(unparameterized("Constant"),[],[exports(conc-grammars(context-free-start-symbols([]),context-free-syntax([prod([lit("\"none\""),lit("\";\"")],sort("NoneStatement"),attrs([term(default(appl(unquoted("cons"),[fun(quoted("\"None\""))])))]))])))])

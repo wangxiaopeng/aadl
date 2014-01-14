@@ -13,8 +13,6 @@ exports
     Identifier                     -> DefiningIdentifier 	
     Identifier                     -> ComponentTypeIdentifier 	
   	Identifier                     -> DefiningComponentTypeIdentifier
-  	Identifier                     -> DefiningPackageName
-  	Identifier                     -> DefiningComplementationName
   	Identifier                     -> ComponentImplementationIdentifier
   	Identifier                     -> DefiningSubcomponentIdentifier
   	Identifier                     -> PrototypeIdentifier

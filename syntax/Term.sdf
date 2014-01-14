@@ -9,11 +9,11 @@ exports
   
 
   context-free syntax
-  Identifier                     ->	ComponentTypePropertyAssociation
-  Identifier                     ->	SubcomponentPropertyAssociation
-  Identifier                     -> PrototypePropertyAssociation
-  Identifier                     -> AnnexSpecificLanguageConstructs
-  Identifier                     -> AnnexSpecificReusableConstructs
+   Identifier                     -> ComponentTypePropertyAssociation
+   Identifier                     -> SubcomponentPropertyAssociation
+   Identifier                     -> PrototypePropertyAssociation
+   Identifier                     -> AnnexSpecificLanguageConstructs
+   Identifier                     -> AnnexSpecificReusableConstructs
   
    Identifier                    -> CallSequencePropertyAssociation
    Identifier                    -> SubcomponentCallPropertyAssociation

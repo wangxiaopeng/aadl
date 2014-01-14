@@ -30,7 +30,7 @@ exports
     ContainedPropertyAssociation+       -> PropertiesMedium{cons("Properties_Medium")}
    	NoneStatement                       -> PropertiesMedium
    	
-  	ComponentCategory "implememtation" DefiningComplementationName
+  	ComponentCategory "implememtation" DefiningComplementationImplementationName
   	  PrototypeBindings?
   	("prototypes" PrototypeMedium)?
   	("subcomponent" SubcomponentMedium)?
@@ -40,10 +40,10 @@ exports
   	ModesSubclause?
   	("properties" PropertiesMedium)?
   	AnnexSubclause*?
-  	"end" DefiningComplementationName  -> ComponentImplementation{cons("Component_Implementation")}
+  	"end" DefiningComplementationImplementationName  -> ComponentImplementation{cons("Component_Implementation")}
   	
   	
-  	ComponentCategory "implememtation" DefiningComplementationName
+  	ComponentCategory "implememtation" DefiningComplementationImplementationName
   	"extends" UniqueComponentImplementationReference
   	  PrototypeBindings?
   	("prototypes" PrototypeMedium)?
@@ -54,9 +54,10 @@ exports
   	ModesSubclause?
   	("properties" PropertiesMedium)?
   	AnnexSubclause*?
-  	"end" DefiningComplementationName  -> ComponentImplementationExtension{cons("Component_Implementation_Exension")}
+  	"end" DefiningComplementationImplementationName  -> ComponentImplementationExtension{cons("Component_Implementation_Exension")}
   	
   	ComponentTypeIdentifier "." ComponentImplementationIdentifier  -> ComponentImplementationName{cons("ComponentImplementationName")}
+  	ComponentImplementationName                                    -> DefiningComplementationImplementationName
   	
   	(PackageName "::")? ComponentImplementationName  -> UniqueComponentImplementationReference{cons("UniqueComponentImplementationReference")}
   	

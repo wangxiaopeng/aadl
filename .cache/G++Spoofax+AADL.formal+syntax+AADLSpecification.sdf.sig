@@ -1,0 +1,1 @@
+module(unparameterized("AADLSpecification"),[imports([module(unparameterized("Packages"))])],[exports(conc-grammars(conc-grammars(sorts([sort("AADLSpecification")]),context-free-start-symbols([])),context-free-syntax([prod([iter(sort("Packagespec"))],sort("AADLSpecification"),attrs([])),prod([iter(sort("Propertyset"))],sort("AADLSpecification"),attrs([]))])))])
